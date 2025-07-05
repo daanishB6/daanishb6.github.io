@@ -594,8 +594,16 @@
         </div>
     </footer>
     
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- [Previous head content remains exactly the same] -->
+</head>
+<body>
+    <!-- [All your HTML content remains exactly the same until the script] -->
+    
     <script>
-        // Sample student data with additional information
+        // Corrected student data array
         const students = [
             {
                 name: "Abdullah Ali",
@@ -721,6 +729,7 @@
                 about: "Always smiling and the most positive person in class.",
                 memory: "His hilarious impressions of teachers",
                 current: "Business Administration at IBA Karachi",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
             },
             {
                 name: "Jawad Hassan Jaffari",
@@ -756,7 +765,6 @@
                 memory: "His hilarious impressions of teachers",
                 current: "Business Administration at IBA Karachi",
                 image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
-            } image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
             },
             {
                 name: "Moiz Ahmed",
@@ -1003,11 +1011,10 @@
                 current: "Business Administration at IBA Karachi",
                 image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
             }
-           
         ];
         
         // Fill the remaining students with generic data for demonstration
-        for (let i = 90; i < 90; i++) {
+        for (let i = students.length; i < 90; i++) {
             students.push({
                 name: `Student ${i+1}`,
                 about: "A wonderful batchmate who made our school days memorable.",
