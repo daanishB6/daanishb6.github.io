@@ -1,1 +1,385 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDS Jand Batch 6 - Memories Timeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0a4da3;
+            --secondary-blue: #1a73e8;
+            --light-blue: #e8f0fe;
+            --dark-blue: #0d2c54;
+            --white: #ffffff;
+            --gold: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-blue);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(10, 77, 163, 0.8), rgba(13, 44, 84, 0.9)), 
+                        url('https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: var(--gold);
+            color: var(--dark-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        /* Timeline Gallery */
+        .timeline-gallery {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark-blue);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--primary-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+        }
+        
+        .timeline-content {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 3px solid var(--light-blue);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(10, 77, 163, 0.3);
+            width: 80px;
+            text-align: center;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            left: 25%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            right: 25%;
+            transform: translate(50%, -50%);
+        }
+        
+        .timeline-text {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .footer-logo {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            
+            .timeline-year {
+                left: 30px !important;
+                right: auto !important;
+                transform: translate(0, -50%) !important;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo" class="logo">
+        <h1>Our Journey (2016-2024)</h1>
+        <p>From wide-eyed Class 6 students to proud graduates of Punjab Danish School Jand</p>
+        <a href="/" class="btn">Back to Home</a>
+    </section>
+    
+    <!-- Timeline Gallery -->
+    <section class="timeline-gallery">
+        <div class="section-title">
+            <h2>Memories Timeline</h2>
+        </div>
+        
+        <div class="timeline">
+            <!-- Class 6 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 6" class="timeline-img">
+                    <h3>Class 6 (2016-2017)</h3>
+                    <p class="timeline-text">Our first year at PDS Jand - new friendships, new challenges, and the beginning of an unforgettable journey.</p>
+                </div>
+                <div class="timeline-year">2016</div>
+            </div>
+            
+            <!-- Class 7 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 7" class="timeline-img">
+                    <h3>Class 7 (2017-2018)</h3>
+                    <p class="timeline-text">Settling in - won our first inter-class cricket tournament and started developing our identities.</p>
+                </div>
+                <div class="timeline-year">2017</div>
+            </div>
+            
+            <!-- Class 8 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 8" class="timeline-img">
+                    <h3>Class 8 (2018-2019)</h3>
+                    <p class="timeline-text">First overnight trip to Islamabad - bonded over bonfires and mountain hikes.</p>
+                </div>
+                <div class="timeline-year">2018</div>
+            </div>
+            
+            <!-- Class 9 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 9" class="timeline-img">
+                    <h3>Class 9 (2019-2020)</h3>
+                    <p class="timeline-text">Science fair champions! Developed our signature project that won at district level.</p>
+                </div>
+                <div class="timeline-year">2019</div>
+            </div>
+            
+            <!-- Class 10 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 10" class="timeline-img">
+                    <h3>Class 10 (2020-2021)</h3>
+                    <p class="timeline-text">Matric exams - stressful but brought us closer through late-night study sessions.</p>
+                </div>
+                <div class="timeline-year">2020</div>
+            </div>
+            
+            <!-- Class 11 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 11" class="timeline-img">
+                    <h3>Class 11 (2021-2022)</h3>
+                    <p class="timeline-text">New beginnings in college - took leadership roles in various societies.</p>
+                </div>
+                <div class="timeline-year">2021</div>
+            </div>
+            
+            <!-- Class 12 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Class 12" class="timeline-img">
+                    <h3>Class 12 (2022-2024)</h3>
+                    <p class="timeline-text">Final year - bittersweet moments preparing for farewell and future paths.</p>
+                </div>
+                <div class="timeline-year">2022</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo" class="footer-logo">
+        <h3 class="footer-title">Punjab Danish School Jand</h3>
+        <p>Batch 6 - The Golden Batch (2016-2024)</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="copyright">© 2024 PDS Jand Batch 6. All rights reserved.</p>
+    </footer>
+</body>
+</html>
