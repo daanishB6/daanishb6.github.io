@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Color Palette */
+        /* ====== Color Palette ====== */
         :root {
             --navy: #0a2342;
             --gold: #d4af37;
@@ -24,13 +24,21 @@
             --brick: #c45e4c;
             --sage: #8a9b6e;
             --slate: #5a6d7b;
+            --light-slate: #a3b1c0;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
         
-        /* Base Styles */
+        /* ====== Base Styles ====== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
@@ -38,74 +46,84 @@
             color: #333;
             background-color: var(--cream);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--navy);
+            line-height: 1.3;
         }
         
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
         
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         
         .container {
-            width: 90%;
+            width: 92%;
             max-width: 1200px;
             margin: 0 auto;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 32px;
             border-radius: 4px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
         }
         
         .btn-primary {
             background-color: var(--gold);
             color: var(--navy);
+            box-shadow: var(--shadow);
         }
         
         .btn-primary:hover {
             background-color: var(--brick);
-            color: white;
+            color: var(--white);
             transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(196, 94, 76, 0.3);
         }
         
         .btn-outline {
             border: 2px solid var(--gold);
             color: var(--gold);
+            background-color: transparent;
         }
         
         .btn-outline:hover {
             background-color: var(--gold);
             color: var(--navy);
+            transform: translateY(-3px);
         }
         
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
@@ -117,8 +135,8 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background: var(--gold);
         }
         
@@ -126,19 +144,26 @@
             font-size: 1.2rem;
             color: var(--slate);
             max-width: 700px;
-            margin: 15px auto 0;
+            margin: 20px auto 0;
+            line-height: 1.7;
         }
         
-        /* Header */
+        /* ====== Header ====== */
         header {
             background-color: var(--navy);
             color: white;
-            padding: 20px 0;
+            padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
         
         .header-container {
@@ -158,16 +183,31 @@
             border-radius: 50%;
             margin-right: 15px;
             border: 2px solid var(--gold);
+            transition: var(--transition);
+        }
+        
+        .logo:hover img {
+            transform: rotate(10deg);
         }
         
         .logo-text h1 {
             font-size: 1.5rem;
             color: white;
             margin-bottom: 5px;
+            transition: var(--transition);
+        }
+        
+        .logo:hover .logo-text h1 {
+            color: var(--gold);
         }
         
         .logo-text p {
             font-size: 0.8rem;
+            color: var(--light-slate);
+            transition: var(--transition);
+        }
+        
+        .logo:hover .logo-text p {
             color: var(--gold);
         }
         
@@ -178,12 +218,14 @@
         
         nav ul li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
             padding-bottom: 5px;
+            font-size: 0.95rem;
         }
         
         nav ul li a::after {
@@ -201,19 +243,72 @@
             width: 100%;
         }
         
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            transition: var(--transition);
+            padding: 5px;
         }
         
-        /* Hero Section */
+        .mobile-menu-btn:hover {
+            color: var(--gold);
+            transform: scale(1.1);
+        }
+        
+        /* ====== Mobile Menu ====== */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--navy);
+            padding: 20px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transform: translateY(-150%);
+            transition: transform 0.4s ease;
+            opacity: 0;
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .mobile-menu ul li a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--gold);
+        }
+        
+        /* ====== Hero Section ====== */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(10, 35, 66, 0.7), rgba(10, 35, 66, 0.9)), 
+            min-height: 700px;
+            background: linear-gradient(rgba(10, 35, 66, 0.85), rgba(10, 35, 66, 0.95)), 
                         url('https://daanishb6.github.io/group.jpg');
             background-size: cover;
             background-position: center;
@@ -222,98 +317,162 @@
             align-items: center;
             text-align: center;
             color: white;
-            margin-top: 70px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--cream));
+            z-index: 1;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
             color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.9;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
         }
         
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
         }
         
-        /* About Section */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-down i {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        
+        /* ====== About Section ====== */
         .about {
-            background-color: white;
+            background-color: var(--white);
+            position: relative;
         }
         
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
         
         .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--navy);
         }
         
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--slate);
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
         
         .about-image {
             position: relative;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
         
         .about-image img {
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
         }
         
         .about-image:hover img {
             transform: scale(1.05);
         }
         
-        /* Memories Section */
+        /* ====== Memories Section ====== */
         .memories {
             background-color: var(--cream);
+            position: relative;
         }
         
         .memory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
         
         .memory-card {
             position: relative;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 250px;
+            box-shadow: var(--shadow);
+            height: 280px;
+            transition: var(--transition);
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .memory-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s ease;
         }
         
         .memory-card:hover img {
@@ -331,7 +490,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: var(--transition);
         }
         
         .memory-card:hover .memory-overlay {
@@ -340,87 +499,145 @@
         
         .memory-overlay h3 {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             text-align: center;
+            padding: 0 20px;
         }
         
-        /* Batchmates Section */
+        .view-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* ====== Batchmates Section ====== */
         .batchmates {
-            background-color: white;
+            background-color: var(--white);
+            position: relative;
         }
         
         .search-container {
-            max-width: 600px;
-            margin: 0 auto 40px;
+            max-width: 700px;
+            margin: 0 auto 50px;
             position: relative;
         }
         
         #search {
             width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--slate);
-            border-radius: 4px;
+            padding: 18px 25px;
+            border: 2px solid var(--light-slate);
+            border-radius: 8px;
             font-size: 1rem;
-            padding-left: 50px;
+            padding-left: 60px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        #search:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         
         .search-icon {
             position: absolute;
-            left: 20px;
+            left: 25px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--slate);
+            font-size: 1.2rem;
         }
         
         .student-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .student-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .student-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: rgba(212, 175, 55, 0.3);
         }
         
         .student-image {
-            height: 200px;
+            height: 250px;
             width: 100%;
             object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .student-card:hover .student-image {
+            transform: scale(1.05);
         }
         
         .student-info {
-            padding: 20px;
+            padding: 25px;
         }
         
         .student-info h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
         }
         
         .student-info p {
             color: var(--slate);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .student-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--slate);
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
         
-        /* Timeline Section */
+        .student-meta span:first-child {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .no-results i {
+            font-size: 3.5rem;
+            color: var(--light-slate);
+            margin-bottom: 20px;
+        }
+        
+        .no-results h3 {
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        
+        .no-results p {
+            color: var(--slate);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* ====== Timeline Section ====== */
         .timeline {
             background-color: var(--cream);
             position: relative;
+            overflow: hidden;
         }
         
         .timeline::before {
@@ -429,14 +646,23 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
+            width: 4px;
             height: 100%;
             background-color: var(--gold);
         }
         
+        .timeline-container {
+            position: relative;
+            padding: 0 20px;
+        }
+        
         .timeline-item {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
         
         .timeline-item:nth-child(odd) {
@@ -451,107 +677,161 @@
         
         .timeline-dot {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background-color: var(--gold);
-            top: 10px;
+            top: 15px;
+            border: 4px solid var(--cream);
+            box-shadow: 0 0 0 2px var(--gold);
         }
         
         .timeline-item:nth-child(odd) .timeline-dot {
-            right: -10px;
+            right: -12px;
         }
         
         .timeline-item:nth-child(even) .timeline-dot {
-            left: -10px;
+            left: -12px;
         }
         
         .timeline-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .timeline-year {
             color: var(--gold);
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
         
         .timeline-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--navy);
         }
         
-        /* Contact Section */
+        .timeline-description {
+            color: var(--slate);
+            line-height: 1.8;
+        }
+        
+        /* ====== Contact Section ====== */
         .contact {
             background-color: var(--navy);
             color: white;
+            position: relative;
         }
         
         .contact .section-title h2 {
             color: white;
         }
         
+        .contact .section-title p {
+            color: var(--light-slate);
+        }
+        
         .contact-form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-control {
             width: 100%;
-            padding: 15px;
+            padding: 18px 25px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
         }
         
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
+            resize: vertical;
         }
         
         .submit-btn {
             background-color: var(--gold);
             color: var(--navy);
-            font-weight: bold;
+            font-weight: 600;
             width: 100%;
+            padding: 18px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
         }
         
-        /* Footer */
+        .submit-btn:hover {
+            background-color: var(--brick);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ====== Footer ====== */
         footer {
             background-color: #081c36;
             color: white;
-            padding: 50px 0 20px;
+            padding: 80px 0 30px;
+            position: relative;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
         }
         
         .footer-logo img {
-            height: 60px;
-            width: 60px;
+            height: 70px;
+            width: 70px;
             border-radius: 50%;
             border: 2px solid var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        
+        .footer-logo:hover img {
+            transform: rotate(10deg);
         }
         
         .footer-logo h3 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-logo p {
+            color: var(--light-slate);
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
         .footer-links h3 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-size: 1.3rem;
         }
         
         .footer-links h3::after {
@@ -559,8 +839,8 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 2px;
+            width: 50px;
+            height: 3px;
             background-color: var(--gold);
         }
         
@@ -569,56 +849,149 @@
         }
         
         .footer-links ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .footer-links ul li a {
-            color: #aaa;
-            transition: color 0.3s ease;
+            color: var(--light-slate);
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
         
         .footer-links ul li a:hover {
             color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .footer-links ul li i {
+            margin-right: 10px;
+            color: var(--gold);
+            width: 20px;
+            text-align: center;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            font-size: 1.1rem;
         }
         
         .social-links a:hover {
             background-color: var(--gold);
             color: var(--navy);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-slate);
             font-size: 0.9rem;
         }
         
-        /* Responsive Design */
+        /* ====== Back to Top Button ====== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--brick);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* ====== Animations ====== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-7px) translateX(-50%);
+            }
+        }
+        
+        /* ====== Responsive Design ====== */
+        @media (max-width: 1200px) {
+            .section {
+                padding: 90px 0;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
         @media (max-width: 992px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .about-image {
                 order: -1;
+                max-width: 600px;
+                margin: 0 auto;
             }
             
             .timeline::before {
@@ -634,11 +1007,23 @@
             
             .timeline-item:nth-child(odd) .timeline-dot,
             .timeline-item:nth-child(even) .timeline-dot {
-                left: 21px;
+                left: 19px;
+            }
+            
+            .student-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
         
         @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
             nav ul {
                 display: none;
             }
@@ -647,8 +1032,19 @@
                 display: block;
             }
             
+            .hero {
+                min-height: 600px;
+                margin-top: 70px;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
             }
             
             .hero-buttons {
@@ -658,6 +1054,21 @@
             
             .btn {
                 width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-links {
+                margin-bottom: 30px;
             }
         }
         
@@ -668,17 +1079,89 @@
             
             .section-title h2 {
                 font-size: 2rem;
+                padding-bottom: 10px;
             }
             
-            .memory-grid {
+            .section-title h2::after {
+                width: 80px;
+                height: 3px;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+            }
+            
+            .timeline-content {
+                padding: 25px;
+            }
+            
+            .timeline-title {
+                font-size: 1.4rem;
+            }
+            
+            .search-container {
+                margin-bottom: 30px;
+            }
+            
+            #search {
+                padding: 15px 20px 15px 50px;
+            }
+            
+            .search-icon {
+                left: 20px;
+            }
+            
+            .student-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .timeline-content {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
             <a href="#" class="logo">
                 <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo">
@@ -699,11 +1182,25 @@
                 </ul>
             </nav>
             
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#memories">Memories</a></li>
+                <li><a href="#batchmates">Batchmates</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -714,6 +1211,11 @@
                 <a href="#batchmates" class="btn btn-primary">Meet Our Batch</a>
                 <a href="#memories" class="btn btn-outline">Relive Memories</a>
             </div>
+        </div>
+        
+        <div class="scroll-down" id="scrollDown">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
     
@@ -791,6 +1293,10 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="view-more">
+                <a href="#" class="btn btn-primary">View More Memories</a>
+            </div>
         </div>
     </section>
     
@@ -804,7 +1310,7 @@
             
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="search" placeholder="Search batchmates...">
+                <input type="text" id="search" placeholder="Search batchmates by name or role...">
             </div>
             
             <div class="student-grid" id="studentGrid">
@@ -827,7 +1333,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2017</div>
                         <h3 class="timeline-title">The Beginning</h3>
-                        <p>90 nervous but excited students joined PDS Jand as Class 6. The first days were filled with homesickness and new friendships forming in equal measure.</p>
+                        <p class="timeline-description">90 nervous but excited students joined PDS Jand as Class 6. The first days were filled with homesickness and new friendships forming in equal measure. We began learning the rhythms of boarding school life together.</p>
                     </div>
                 </div>
                 
@@ -836,7 +1342,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2018</div>
                         <h3 class="timeline-title">Finding Our Footing</h3>
-                        <p>By Class 7, we'd settled into boarding school life. Dormitory routines were established, and batch identity began to take shape.</p>
+                        <p class="timeline-description">By Class 7, we'd settled into boarding school life. Dormitory routines were established, and batch identity began to take shape. We started discovering each other's talents and personalities.</p>
                     </div>
                 </div>
                 
@@ -845,7 +1351,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2019</div>
                         <h3 class="timeline-title">Coming Together</h3>
-                        <p>As Class 8 students, we started taking leadership roles in school activities. Our batch won several inter-house competitions.</p>
+                        <p class="timeline-description">As Class 8 students, we started taking leadership roles in school activities. Our batch won several inter-house competitions. The bonds of friendship grew stronger through shared experiences.</p>
                     </div>
                 </div>
                 
@@ -854,7 +1360,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2020</div>
                         <h3 class="timeline-title">The Challenge</h3>
-                        <p>COVID-19 disrupted our Class 9 year, but we adapted to online learning while supporting each other through the difficult times.</p>
+                        <p class="timeline-description">COVID-19 disrupted our Class 9 year, but we adapted to online learning while supporting each other through the difficult times. Even apart, our batch remained connected.</p>
                     </div>
                 </div>
                 
@@ -863,7 +1369,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2021-2022</div>
                         <h3 class="timeline-title">Senior Years</h3>
-                        <p>As Class 10 and 11 students, we took on mentorship roles for younger batches while preparing for our board examinations.</p>
+                        <p class="timeline-description">As Class 10 and 11 students, we took on mentorship roles for younger batches while preparing for our board examinations. Our batch became known for both academic excellence and strong camaraderie.</p>
                     </div>
                 </div>
                 
@@ -872,7 +1378,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">2023-2024</div>
                         <h3 class="timeline-title">Graduation</h3>
-                        <p>Our final years as Class 12 students were bittersweet - proud of our accomplishments but sad to leave our second home. Batch 6 graduated, but the bonds remain.</p>
+                        <p class="timeline-description">Our final years as Class 12 students were bittersweet - proud of our accomplishments but sad to leave our second home. Batch 6 graduated, but the bonds remain unbroken.</p>
                     </div>
                 </div>
             </div>
@@ -887,7 +1393,7 @@
                 <p>Though our school days have ended, our connections continue</p>
             </div>
             
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Your Name" required>
                 </div>
@@ -904,7 +1410,12 @@
                     <textarea class="form-control" placeholder="Your Message" required></textarea>
                 </div>
                 
-                <button type="submit" class="btn submit-btn">Send Message</button>
+                <button type="submit" class="btn submit-btn">
+                    <span id="submitText">Send Message</span>
+                    <span id="submitLoading" class="loading" style="display: none;">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </span>
+                </button>
             </form>
         </div>
     </section>
@@ -917,41 +1428,52 @@
                     <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo">
                     <h3>Punjab Daanish School Jand</h3>
                     <p>Batch 6 - 2017 to 2024</p>
-                    <p>The batch that redefined friendship and camaraderie</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#memories">Memories</a></li>
-                        <li><a href="#batchmates">Batchmates</a></li>
-                        <li><a href="#timeline">Timeline</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Connect With Us</h3>
+                    <p>The batch that redefined friendship and camaraderie through seven unforgettable years together.</p>
+                    
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <p>Email: batch6@pdsjand.com</p>
-                    <p>Phone: +92 300 1234567</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Our Story</a></li>
+                        <li><a href="#memories"><i class="fas fa-chevron-right"></i> Memories</a></li>
+                        <li><a href="#batchmates"><i class="fas fa-chevron-right"></i> Batchmates</a></li>
+                        <li><a href="#timeline"><i class="fas fa-chevron-right"></i> Timeline</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Punjab Daanish School, Jand Road, Attock</li>
+                        <li><i class="fas fa-envelope"></i> batch6@pdsjand.com</li>
+                        <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                        <li><i class="fas fa-clock"></i> Always open for batchmates</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2023 Punjab Daanish School Jand - Batch 6. All Rights Reserved.</p>
+                <p>Made with <i class="fas fa-heart" style="color: var(--brick);"></i> by Batch 6 for Batch 6</p>
             </div>
         </div>
     </footer>
     
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
     <script>
-        // Student data
+        // ====== Student Data ======
         const students = [
             {
                 name: "Abdullah Ali",
@@ -1349,18 +1871,28 @@
             });
         }
         
-        // Render student cards
+        // ====== DOM Elements ======
         const studentGrid = document.getElementById('studentGrid');
+        const searchInput = document.getElementById('search');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const backToTop = document.getElementById('backToTop');
+        const scrollDown = document.getElementById('scrollDown');
+        const header = document.getElementById('header');
+        const contactForm = document.getElementById('contactForm');
+        const submitText = document.getElementById('submitText');
+        const submitLoading = document.getElementById('submitLoading');
         
+        // ====== Render Student Cards ======
         function renderStudents(studentList) {
             studentGrid.innerHTML = '';
             
             if (studentList.length === 0) {
                 studentGrid.innerHTML = `
-                    <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 50px;">
-                        <i class="fas fa-user-slash" style="font-size: 3rem; color: var(--slate); margin-bottom: 20px;"></i>
+                    <div class="no-results">
+                        <i class="fas fa-user-slash"></i>
                         <h3>No batchmates found</h3>
-                        <p>Try a different search term</p>
+                        <p>Try searching with a different term</p>
                     </div>
                 `;
                 return;
@@ -1387,9 +1919,7 @@
         // Initial render
         renderStudents(students);
         
-        // Search functionality
-        const searchInput = document.getElementById('search');
-        
+        // ====== Search Functionality ======
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const filteredStudents = students.filter(student => 
@@ -1400,47 +1930,100 @@
             renderStudents(filteredStudents);
         });
         
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav ul');
-        
+        // ====== Mobile Menu Toggle ======
         mobileMenuBtn.addEventListener('click', function() {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            mobileMenu.classList.toggle('active');
+            this.innerHTML = mobileMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Close mobile menu when clicking a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    nav.style.display = 'none';
-                }
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Smooth scrolling for anchor links
+        // ====== Scroll Down Button ======
+        scrollDown.addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight - 80,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ====== Back to Top Button ======
+        window.addEventListener('scroll', function() {
+            // Show/hide back to top button
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+            
+            // Header scroll effect
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ====== Smooth Scrolling for Anchor Links ======
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 70,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        
+        // ====== Form Submission ======
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+            
+            // Show loading state
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Hide loading, show success
+                submitText.style.display = 'inline-block';
+                submitLoading.style.display = 'none';
+                
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            }, 1500);
+        });
+        
+        // ====== Memory Card Click ======
+        document.querySelectorAll('.memory-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // In a real implementation, this would open a lightbox with more photos
+                alert('This would open a detailed view of the memory with more photos and descriptions.');
+            });
         });
     </script>
 </body>
