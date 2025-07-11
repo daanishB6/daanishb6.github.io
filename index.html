@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDS Jand Batch 6 - Legends Assemble</title>
+    <meta name="description" content="Official website for Punjab Daanish School Jand Attock Batch 6 (2017-2024) - Celebrating our journey together">
+    <meta name="keywords" content="Punjab Daanish School, PDS Jand, Batch 6, School Friends, Classmates">
+    <meta name="author" content="PDS Jand Batch 6">
+    
+    <title>PDS Jand Batch 6 - Legends Never Graduate</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://daanishb6.github.io/logo.jpeg" type="image/jpeg">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.core.min.css">
+    
     <style>
         :root {
             --primary-blue: #0a4da3;
@@ -14,465 +33,605 @@
             --white: #ffffff;
             --off-white: #f9f9f9;
             --gold: #ffd700;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background-color: var(--off-white);
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 80vh;
-            min-height: 600px;
-            background: linear-gradient(rgba(10, 77, 163, 0.7), rgba(13, 44, 84, 0.9)), 
-                        url('https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            --dark-gold: #daa520;
+            --shadow: 0 4px 6px rgba(0, 0,  ight: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
-            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.5) 100%);
+        .memory-card:hover .memory-overlay {
+            opacity: 1;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .logo-container {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .logo {
-            height: 120px;
-            width: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            object-fit: cover;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
+        .view-memory-btn {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 10px 20px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1rem;
-            cursor: pointer;
-            border: 2px solid transparent;
         }
         
-        .btn-primary {
-            background-color: var(--gold);
-            color: var(--dark-blue);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-        }
-        
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--gold);
-            border-color: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border-color: white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* Group Photo Section */
-        .group-photo-section {
-            padding: 80px 20px;
+        .view-memory-btn:hover {
             background-color: var(--white);
-            text-align: center;
-        }
-        
-        .group-photo-container {
-            max-width: 1000px;
-            margin: 0 auto 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            border: 5px solid var(--white);
-            position: relative;
-        }
-        
-        .group-photo {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .group-photo-container:hover .group-photo {
-            transform: scale(1.02);
-        }
-        
-        .group-photo-caption {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            color: var(--dark-blue);
-            font-style: italic;
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .group-photo-caption::before, 
-        .group-photo-caption::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--gold);
-            position: absolute;
-        }
-        
-        .group-photo-caption::before {
-            top: 0;
-            left: -30px;
-        }
-        
-        .group-photo-caption::after {
-            bottom: 0;
-            right: -30px;
-        }
-        
-        /* Search Section */
-        .search-section {
-            background-color: var(--white);
-            padding: 40px 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 10;
-            border-radius: 15px;
-            max-width: 800px;
-            margin: -50px auto 0;
-        }
-        
-        .search-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        #search {
-            width: 100%;
-            padding: 15px 25px;
-            border: 2px solid var(--primary-blue);
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            box-shadow: 0 4px 15px rgba(10, 77, 163, 0.1);
-            transition: all 0.3s ease;
-            padding-left: 50px;
-        }
-        
-        #search:focus {
-            border-color: var(--secondary-blue);
-            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.2);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-blue);
-            font-size: 1.2rem;
-        }
-        
-        .student-count {
-            text-align: center;
-            margin: 20px 0 30px;
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        /* Gallery Section */
-        .gallery-section {
-            padding: 60px 20px;
-            background-color: var(--off-white);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--dark-blue);
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            display: inline-block;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gold);
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .student-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: none;
-            position: relative;
-        }
-        
-        .student-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .student-image-container {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .student-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .student-card:hover .student-image {
             transform: scale(1.05);
         }
         
-        .batch-badge {
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 20px;
+            background-color: var(--dark-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-section::before {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+        
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
             background-color: var(--gold);
-            color: var(--dark-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            top: 10px;
         }
         
-        .student-info {
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
         
-        .student-name {
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-year {
+            color: var(--gold);
             font-weight: 700;
-            color: var(--dark-blue);
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
         
-        .student-about {
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
         }
         
-        .student-details {
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            margin-top: 15px;
+        .timeline-description {
+            opacity: 0.9;
+            line-height: 1.6;
         }
         
-        .detail-item {
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 20px;
+            background-color: var(--off-white);
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .glide__track {
+            overflow: visible;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(10, 77, 163, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
+        }
+        
+        .testimonial-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--gold);
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            color: var(--dark-blue);
+        }
+        
+        .author-info p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .glide__arrows {
+            position: absolute;
+            top: -70px;
+            right: 0;
+        }
+        
+        .glide__arrow {
+            background: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary-blue);
+        }
+        
+        .glide__arrow:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .contact-text {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .contact-details {
+            margin-top: auto;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--gold);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(10, 77, 163, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gold);
+            color: var(--dark-blue);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .submit-btn:hover {
+            background: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            color: white;
+            padding: 60px 20px 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo-col img {
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-col p {
+            opacity: 0.7;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
             font-size: 0.9rem;
         }
         
-        .detail-item i {
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--dark-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--dark-gold);
+            transform: translateY(-5px);
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            margin: 0;
+            color: var(--dark-blue);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary-blue);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .student-modal {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .modal-student-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-student-info h3 {
+            margin-top: 0;
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+        }
+        
+        .modal-student-info p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .modal-detail-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .modal-detail-item i {
             color: var(--secondary-blue);
             margin-right: 10px;
             width: 20px;
             text-align: center;
         }
         
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-            font-size: 1.2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .no-results i {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .footer-logo {
-            height: 80px;
-            width: 80px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            margin-bottom: 20px;
-        }
-        
-        .footer-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .footer-text {
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-        
-        .social-links {
+        .social-links-modal {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .social-link {
+        .social-link-modal {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: var(--light-blue);
+            color: var(--primary-blue);
             transition: all 0.3s ease;
         }
         
-        .social-link:hover {
-            background-color: var(--gold);
-            color: var(--dark-blue);
+        .social-link-modal:hover {
+            background: var(--primary-blue);
+            color: white;
             transform: translateY(-3px);
         }
         
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .features-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .student-modal {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-student-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero {
                 height: auto;
-                padding: 100px 20px;
-                min-height: auto;
+                padding: 120px 20px;
             }
             
             .hero h1 {
@@ -483,39 +642,42 @@
                 font-size: 1.1rem;
             }
             
-            .group-photo-section {
-                padding: 50px 20px;
+            .timeline-section::before {
+                left: 31px;
             }
             
-            .group-photo-caption {
-                font-size: 1rem;
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                text-align: left;
             }
             
-            .group-photo-caption::before {
-                left: -15px;
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 27px;
             }
             
-            .group-photo-caption::after {
-                right: -15px;
+            .features-container {
+                grid-template-columns: 1fr;
             }
             
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .memory-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .section-title h2 {
-                font-size: 2rem;
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                order: -1;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
             }
             
             .hero-buttons {
@@ -523,535 +685,1539 @@
                 gap: 10px;
             }
             
-            .gallery {
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .memory-grid {
                 grid-template-columns: 1fr;
             }
             
-            .search-section {
-                margin-top: -30px;
+            .footer-container {
+                grid-template-columns: 1fr;
             }
+            
+            .glide__arrows {
+                top: -60px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+        
+        /* Animation Classes */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <h3>Loading Memories...</h3>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo">
+                <span>Batch 6</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">Our Story</a>
+                <a href="#gallery" class="nav-link">Classmates</a>
+                <a href="#memories" class="nav-link">Memories</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-nav-link active">Home</a>
+        <a href="#about" class="mobile-nav-link">Our Story</a>
+        <a href="#gallery" class="mobile-nav-link">Classmates</a>
+        <a href="#memories" class="mobile-nav-link">Memories</a>
+        <a href="#timeline" class="mobile-nav-link">Timeline</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+    
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content floating">
-            <div class="logo-container">
+    <section class="hero" id="home">
+        <div class="hero-content floating" data-aos="fade-up" data-aos-duration="1000">
+            <div class="logo-container pulse">
                 <img src="https://daanishb6.github.io/logo.jpeg" alt="Punjab Danish School Jand Attock Logo" class="logo">
             </div>
-            <h1>Batch 6 - Legends Assemble</h1>
-            <p>Celebrating 90 souls who made Punjab Danish School Jand Attock a home</p>
+            <h1>Batch 6 - Legends Never Graduate</h1>
+            <p>90 extraordinary souls who turned Punjab Danish School Jand Attock into a home of memories (2017-2024)</p>
             <div class="hero-buttons">
                 <a href="#gallery" class="btn btn-primary">Explore Classmates</a>
-                <a href="/memories" class="btn btn-secondary">Our Memories</a>
+                <a href="#memories" class="btn btn-secondary">Relive Memories</a>
             </div>
+        </div>
+        
+        <div class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
         </div>
     </section>
     
     <!-- Group Photo Section -->
     <section class="group-photo-section">
-        <div class="group-photo-container">
+        <div class="group-photo-container" data-aos="zoom-in">
             <img src="https://daanishb6.github.io/group.jpg" alt="Batch 6 Group Photo" class="group-photo">
         </div>
-        <p class="group-photo-caption">Together we laughed, learned, and grew - a bond that time cannot erase</p>
+        <p class="group-photo-caption">"Together we weren't just classmates, we were a family that turned every moment into a memory worth cherishing forever."</p>
     </section>
     
     <!-- Search Section -->
     <div class="search-section">
-        <div class="search-container">
+        <div class="search-container" data-aos="fade-up">
             <i class="fas fa-search search-icon"></i>
             <input type="text" id="search" placeholder="Find your classmate... (e.g. type 'asf')" aria-label="Search students">
+            <div class="search-tooltip">Tip: Search by name or nickname</div>
         </div>
     </div>
     
+    <!-- Features Section -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Why We're Special</h2>
+                <p>What made Batch 6 truly unique and unforgettable</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Unbreakable Bonds</h3>
+                    <p>From classroom debates to dormitory secrets, we built friendships that stood the test of time and distance.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Champions Spirit</h3>
+                    <p>Whether in academics, sports or debates, Batch 6 always brought home trophies and made our school proud.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h3>Endless Laughter</h3>
+                    <p>Our inside jokes, teacher impressions and silly moments created an atmosphere of constant joy.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Support System</h3>
+                    <p>Through thick and thin, we were always there for each other - a true family beyond blood relations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Gallery Section -->
     <section class="gallery-section" id="gallery">
-        <div class="section-title">
-            <h2>Our Batch Stars</h2>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Batch Stars</h2>
+                <p>90 unique personalities who made our journey unforgettable</p>
+            </div>
+            
+            <div class="student-count" id="studentCount">Showing 90 of 90 students</div>
+            
+            <div class="gallery" id="galleryContainer">
+                <!-- Student cards will be generated by JavaScript -->
+            </div>
         </div>
-        
-        <div class="student-count" id="studentCount">Showing 90 of 90 students</div>
-        
-        <div class="gallery" id="galleryContainer">
-            <!-- Student cards will be generated by JavaScript -->
+    </section>
+    
+    <!-- Memories Section -->
+    <section class="memories-section" id="memories">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Precious Moments</h2>
+                <p>A glimpse into our unforgettable journey together</p>
+            </div>
+            
+            <div class="memory-grid">
+                <div class="memory-card" data-aos="zoom-in">
+                    <img src="https://daanishb6.github.io/group.jpg" alt="Annual Day Performance" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+                
+                <div class="memory-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Sports Day" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+                
+                <div class="memory-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Classroom Fun" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+                
+                <div class="memory-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Field Trip" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+                
+                <div class="memory-card" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Farewell" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+                
+                <div class="memory-card" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg" alt="Graduation" class="memory-image">
+                    <div class="memory-overlay">
+                        <a href="#" class="view-memory-btn">View Memory</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">View All Memories</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Journey</h2>
+                <p>From wide-eyed 6th graders to accomplished graduates</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-description">90 nervous but excited kids stepped into PDS Jand, not knowing they were about to meet their second family.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">Finding Our Footing</h3>
+                        <p class="timeline-description">First year complete! Bonds started forming, inside jokes began, and we realized this was more than just a school.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">Making Our Mark</h3>
+                        <p class="timeline-description">Batch 6 started winning competitions, setting records, and becoming known as the batch to watch.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">The Challenge</h3>
+                        <p class="timeline-description">COVID hit, but our bonds only grew stronger through virtual classes and support during tough times.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021-2022</div>
+                        <h3 class="timeline-title">Coming of Age</h3>
+                        <p class="timeline-description">Senior years brought deeper friendships, leadership roles, and preparing for the world beyond school.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023-2024</div>
+                        <h3 class="timeline-title">Legacy Complete</h3>
+                        <p class="timeline-description">Graduation arrived with mixed emotions - pride in our achievements but sadness at parting ways.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>In Their Words</h2>
+                <p>What our batchmates say about this incredible journey</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <div class="testimonial-card" data-aos="fade-up">
+                                    <p class="testimonial-content">PDS Jand wasn't just a school for me, it was where I found brothers for life. The late-night study sessions, the shared laughter, the support during tough times - these are treasures I'll carry forever.</p>
+                                    <div class="testimonial-author">
+                                        <img src="/talhaali.jpg" alt="Talha Ali" class="testimonial-image">
+                                        <div class="author-info">
+                                            <h4>Talha Ali</h4>
+                                            <p>Batch 6 - The Entertainer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="glide__slide">
+                                <div class="testimonial-card" data-aos="fade-up">
+                                    <p class="testimonial-content">What made Batch 6 special was how we turned competition into camaraderie. We pushed each other to be better, celebrated each other's wins, and picked each other up during losses.</p>
+                                    <div class="testimonial-author">
+                                        <img src="/habib.jpg" alt="Habib Ur Rehman" class="testimonial-image">
+                                        <div class="author-info">
+                                            <h4>Habib Ur Rehman</h4>
+                                            <p>Batch 6 - The Motivator</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            <li class="glide__slide">
+                                <div class="testimonial-card" data-aos="fade-up">
+                                    <p class="testimonial-content">From the first day to graduation, Batch 6 showed me the true meaning of friendship. We fought like siblings but loved even harder. These seven years shaped who I am today.</p>
+                                    <div class="testimonial-author">
+                                        <img src="/nade.jpg" alt="Nade'Ali" class="testimonial-image">
+                                        <div class="author-info">
+                                            <h4>Nade'Ali</h4>
+                                            <p>Batch 6 - The Peacemaker</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-chevron-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h2 class="contact-title">Stay Connected</h2>
+                    <p class="contact-text">Though our school days have ended, our bonds remain. Reach out to share memories, update your information, or just say hello to your old friends.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>Punjab Daanish School, Jand Road, Attock</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>batch6@pdsjand.com</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span>+92 300 1234567</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Batch (e.g. Batch 6)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span id="submitText">Send Message</span>
+                            <span id="submitLoading" class="loading" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo" class="footer-logo">
-            <h3 class="footer-title">Punjab Danish School Jand Attock</h3>
-            <p class="footer-text">Batch 6 - The batch that redefined friendship and camaraderie</p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo-col">
+                    <img src="https://daanishb6.github.io/logo.jpeg" alt="PDS Jand Logo" class="footer-logo">
+                    <p>Punjab Daanish School Jand Attock Batch 6 - A brotherhood forged in the halls of our beloved school that will last a lifetime.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Our Story</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Classmates</a></li>
+                        <li><a href="#memories"><i class="fas fa-chevron-right"></i> Memories</a></li>
+                        <li><a href="#timeline"><i class="fas fa-chevron-right"></i> Timeline</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Batch Photos</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Yearbook</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Reunion Info</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> School Website</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Alumni Network</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="copyright">© 2023 PDS Jand Batch 6. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Punjab Daanish School Jand Attock Batch 6. All Rights Reserved.</p>
+                <p>Made with <i class="fas fa-heart" style="color: #ff0000;"></i> by Batch 6 for Batch 6</p>
+            </div>
         </div>
     </footer>
     
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- [Previous head content remains exactly the same] -->
-</head>
-<body>
-    <!-- [All your HTML content remains exactly the same until the script] -->
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Student Modal -->
+    <div class="modal" id="studentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Student Profile</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="student-modal" id="modalContent">
+                    <!-- Content will be filled by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Glide.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/glide.min.js"></script>
     
     <script>
-        // Corrected student data array
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Glide.js for testimonials
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 1,
+            gap: 30,
+            autoplay: 4000,
+            hoverpause: true,
+            breakpoints: {
+                768: {
+                    perView: 1
+                }
+            }
+        }).mount();
+        
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                document.getElementById('loadingScreen').style.visibility = 'hidden';
+            }, 1000);
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active nav link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Student data array
         const students = [
             {
                 name: "Abdullah Ali",
                 about: "The class leader with a great sense of humor. Always ready to help others.",
                 memory: "Organizing the annual science exhibition",
                 current: "Studying Engineering at UET Lahore",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Captain",
+                email: "abdullah.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Ali Raza",
                 about: "Cricket enthusiast and the fastest runner in class.",
                 memory: "Winning inter-school cricket tournament",
                 current: "Medical student at King Edward Medical University",
-                image: "/munna.jpg"
+                image: "/munna.jpg",
+                nickname: "Munna",
+                email: "ali.raza@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Bilal Ahmed",
                 about: "Quiet but brilliant in mathematics. Our human calculator.",
                 memory: "Solving complex problems in seconds during math competitions",
                 current: "Actuarial Science at LUMS",
-                image: "/bilal.jpg"
+                image: "/bilal.jpg",
+                nickname: "Calculator",
+                email: "bilal.ahmed@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Usman (R)",
                 about: "The debate champion with a golden voice.",
                 memory: "Winning all debate competitions for our school",
                 current: "Law student at Punjab University",
-                image: "/usmanr.jpg"
+                image: "/usmanr.jpg",
+                nickname: "Speaker",
+                email: "usman.r@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Usman (N)",
                 about: "Always smiling and the most positive person in class.",
                 memory: "His hilarious impressions of teachers",
                 current: "Business Administration at IBA Karachi",
-                image: "/usmann.jpg"
+                image: "/usmann.jpg",
+                nickname: "Smiley",
+                email: "usman.n@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad usman (L)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/usmanl.jpg"
+                about: "Tech enthusiast who could fix any computer issue.",
+                memory: "Setting up the school's first computer club",
+                current: "Computer Science at FAST",
+                image: "/usmanl.jpg",
+                nickname: "Geek",
+                email: "usman.l@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Usman Akram",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/usmana.jpg"
+                about: "Football team captain with incredible leadership skills.",
+                memory: "Leading our team to victory in inter-school tournament",
+                current: "Sports Science at University of Punjab",
+                image: "/usmana.jpg",
+                nickname: "Captain",
+                email: "usman.akram@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Adnan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The philosopher of our batch with deep thoughts.",
+                memory: "His thought-provoking questions in ethics class",
+                current: "Philosophy at Quaid-i-Azam University",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Thinker",
+                email: "adnan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Malik Hamza",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "Always prepared with notes for everyone before exams.",
+                memory: "Organizing group study sessions before finals",
+                current: "Medicine at Aga Khan University",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Professor",
+                email: "hamza.malik@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Afzaal Ahmed",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "Our resident artist who decorated every classroom board.",
+                memory: "Creating beautiful welcome boards for new teachers",
+                current: "Fine Arts at NCA",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Picasso",
+                email: "afzaal.ahmed@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Ahsan Khan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The most disciplined student with perfect uniform always.",
+                memory: "Winning best disciplined student award 3 years in a row",
+                current: "Pakistan Military Academy",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Sahab",
+                email: "ahsan.khan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Aleem Rasool",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "Our cricket team's best bowler with unplayable deliveries.",
+                memory: "Taking a hat-trick in inter-school tournament",
+                current: "Business at LSE",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Boom Boom",
+                email: "aleem.rasool@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Ali Qasim",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The poet who could express any feeling in beautiful verses.",
+                memory: "His emotional farewell poem that made everyone cry",
+                current: "English Literature at GCU",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Shayar",
+                email: "ali.qasim@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Asim Hafeez",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The most organized person who kept our class schedule running.",
+                memory: "Creating the perfect study timetable before exams",
+                current: "Project Management at UCP",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Planner",
+                email: "asim.hafeez@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Awais Hussain",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The foodie who always shared his tiffin with everyone.",
+                memory: "His famous homemade biryani that he brought on Fridays",
+                current: "Culinary Arts at ICCA",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Chef",
+                email: "awais.hussain@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Awais Khan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The class comedian who could lighten any tense situation.",
+                memory: "His hilarious announcements during morning assembly",
+                current: "Media Studies at PU",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Joker",
+                email: "awais.khan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Habib Ur Rehman",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/habib.jpg"
+                about: "The motivational speaker who inspired us all to do better.",
+                memory: "His pep talks before exam season",
+                current: "Psychology at Harvard University",
+                image: "/habib.jpg",
+                nickname: "Coach",
+                email: "habib.rehman@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Hashir Ali (SWTY)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The fashion icon who always had the coolest hairstyle.",
+                memory: "Starting the trend of spiky hair in our batch",
+                current: "Fashion Design at PIFD",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Stylist",
+                email: "hashir.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Jawad Hassan Jaffari",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The most respectful student who won every teacher's heart.",
+                memory: "His perfect salaam to every teacher every morning",
+                current: "Islamic Studies at IIUI",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Moulvi",
+                email: "jawad.jaffari@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Jameel Khan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The night owl who could study till 3am and still be fresh.",
+                memory: "His legendary all-nighters before exams",
+                current: "Neuroscience at Johns Hopkins",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Owl",
+                email: "jameel.khan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Jawad Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The most punctual student who was never late in 7 years.",
+                memory: "His perfect attendance record",
+                current: "Logistics Management at UMT",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Clock",
+                email: "jawad.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Junaid Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The basketball star with incredible shooting skills.",
+                memory: "His last-second winning shots in tournaments",
+                current: "Sports Scholarship at LUMS",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "MJ",
+                email: "junaid.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Malik Umer",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The storyteller who could make any event sound epic.",
+                memory: "His dramatic retelling of school trips",
+                current: "Journalism at Columbia University",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Homer",
+                email: "umer.malik@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Moiz Ahmed",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                about: "The tech wizard who could fix any gadget in minutes.",
+                memory: "Repairing the projector during important presentations",
+                current: "Electrical Engineering at GIKI",
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Tech",
+                email: "moiz.ahmed@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Nade'Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/nade.jpg"
+                about: "The peacemaker who resolved countless friend disputes.",
+                memory: "His diplomatic solutions to our silly fights",
+                current: "International Relations at QAU",
+                image: "/nade.jpg",
+                nickname: "Gandhi",
+                email: "nade.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Raja Zeeshan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/raja1.jpg"
+                about: "The quiz champion who knew answers to everything.",
+                memory: "Winning the inter-school quiz competition single-handedly",
+                current: "Trivia Master at University of Oxford",
+                image: "/raja1.jpg",
+                nickname: "Google",
+                email: "zeeshan.raja@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Talha Ali",
-                about: "An extrovert with various skills.Best Dancer and always willing to represent our class",
+                about: "An extrovert with various skills. Best Dancer and always willing to represent our class.",
                 memory: "Kala Gate (Abid sahab ka Ragra) + InClass Friends Fights",
                 current: "BS CyberSecurity at Air University Kamra",
-                image: "/talhaali.jpg"
+                image: "/talhaali.jpg",
+                nickname: "Dancer",
+                email: "talha.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Khubab Satti",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/khubab.jpg"
+                about: "The most stylish debater with unbeatable arguments.",
+                memory: "His powerful closing statements in debates",
+                current: "Law at Cambridge University",
+                image: "/khubab.jpg",
+                nickname: "Closer",
+                email: "khubab.satti@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Umair",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/umair.jpg"
+                about: "The photographer who captured our best moments.",
+                memory: "His candid shots during school events",
+                current: "Photography at NYU",
+                image: "/umair.jpg",
+                nickname: "Shutter",
+                email: "umair@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Rohail Khattak",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/rohail.jpg"
+                about: "The music lover who introduced us to great songs.",
+                memory: "His guitar performances at talent shows",
+                current: "Music Production at Berklee",
+                image: "/rohail.jpg",
+                nickname: "Rockstar",
+                email: "rohail.khattak@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Saad Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/saad.jpg"
+                about: "The most helpful person who assisted everyone selflessly.",
+                memory: "Staying back to help clean classroom after events",
+                current: "Social Work at University of Toronto",
+                image: "/saad.jpg",
+                nickname: "Helper",
+                email: "saad.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Saqib haneef",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/saqib.jpg"
+                about: "The fitness enthusiast who inspired our morning workouts.",
+                memory: "His 5am fitness club in school",
+                current: "Physical Therapy at Stanford",
+                image: "/saqib.jpg",
+                nickname: "Trainer",
+                email: "saqib.haneef@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Saqlain Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/saqlain.jpg"
+                about: "The most creative writer with imaginative stories.",
+                memory: "His award-winning short stories",
+                current: "Creative Writing at Iowa",
+                image: "/saqlain.jpg",
+                nickname: "Writer",
+                email: "saqlain.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Sayyam Abbas (Roshaan)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/sayyam.jpg"
+                about: "The chess champion who could think 10 moves ahead.",
+                memory: "Winning national school chess championship",
+                current: "Economics at LSE",
+                image: "/sayyam.jpg",
+                nickname: "Grandmaster",
+                email: "sayyam.abbas@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Shahzaib (Anki)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/shahzaibanki.jpg"
+                about: "The anime expert who introduced us to Japanese culture.",
+                memory: "His epic anime screenings in dormitory",
+                current: "Japanese Studies at Tokyo University",
+                image: "/shahzaibanki.jpg",
+                nickname: "Otaku",
+                email: "shahzaib@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Umer Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/umer.jpg"
+                about: "The most organized person who kept our notes perfect.",
+                memory: "His color-coded notes everyone borrowed",
+                current: "Architecture at NCA",
+                image: "/umer.jpg",
+                nickname: "Organizer",
+                email: "umer.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Zaiban Saleem",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/zaiban.jpg"
+                about: "The kindest soul who remembered everyone's birthdays.",
+                memory: "His surprise birthday celebrations for classmates",
+                current: "Pediatrics at Aga Khan University",
+                image: "/zaiban.jpg",
+                nickname: "Carebear",
+                email: "zaiban.saleem@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Abdullah shahid",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/abdullahsahid.jpg"
+                about: "The history buff who knew everything about civilizations.",
+                memory: "His fascinating history presentations",
+                current: "Archaeology at University of Chicago",
+                image: "/abdullahsahid.jpg",
+                nickname: "Indiana",
+                email: "abdullah.shahid@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Asif khattak",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/asif.jpg"
+                about: "The most patient person who never lost his temper.",
+                memory: "Calming everyone down during stressful exams",
+                current: "Psychology at Yale",
+                image: "/asif.jpg",
+                nickname: "Zen",
+                email: "asif.khattak@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Haris",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/haris.jpg"
+                about: "The science geek with amazing experiment ideas.",
+                memory: "His explosive (but safe) chemistry demos",
+                current: "Chemical Engineering at MIT",
+                image: "/haris.jpg",
+                nickname: "Einstein",
+                email: "haris@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad jalal",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/jalal.jpg"
+                about: "The football commentator with hilarious match analyses.",
+                memory: "His live commentary during lunchtime matches",
+                current: "Sports Journalism at Northwestern",
+                image: "/jalal.jpg",
+                nickname: "Commentator",
+                email: "jalal@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Huzaifa Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/huzaifa.jpg"
+                about: "The coding prodigy who built our first class website.",
+                memory: "Creating our Class 8 digital yearbook",
+                current: "Computer Science at Stanford",
+                image: "/huzaifa.jpg",
+                nickname: "Coder",
+                email: "huzaifa.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Qamar iqbal",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/qamar.jpg"
+                about: "The astronomy lover who knew all constellations.",
+                memory: "Night sky watching during camping trips",
+                current: "Astrophysics at Caltech",
+                image: "/qamar.jpg",
+                nickname: "Stargazer",
+                email: "qamar.iqbal@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Azaan Tahir",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/azaan.jpg"
+                about: "The most energetic person who never seemed to tire.",
+                memory: "His non-stop energy during sports week",
+                current: "Sports Medicine at UCLA",
+                image: "/azaan.jpg",
+                nickname: "Energizer",
+                email: "azaan.tahir@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Haseeb Malik",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/haseeb.jpg"
+                about: "The business mind who organized our best fundraisers.",
+                memory: "His profitable tuck shop ventures",
+                current: "Entrepreneurship at Babson",
+                image: "/haseeb.jpg",
+                nickname: "Mogul",
+                email: "haseeb.malik@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Raheel Ali (Pindi gheb)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/raheel.jpg"
+                about: "The geography expert who could draw any map perfectly.",
+                memory: "His detailed maps for geography class",
+                current: "Urban Planning at Harvard",
+                image: "/raheel.jpg",
+                nickname: "Atlas",
+                email: "raheel.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Raheel Ali hassan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/raheelr.jpg"
+                about: "The most disciplined athlete with perfect form always.",
+                memory: "His flawless high jump technique",
+                current: "Olympic Training Program",
+                image: "/raheelr.jpg",
+                nickname: "Athlete",
+                email: "raheel.hassan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Mustaghees",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/mustaghees.jpg"
+                about: "The quiet genius who surprised everyone with his wisdom.",
+                memory: "His profound answers in philosophy discussions",
+                current: "Philosophy at Oxford",
+                image: "/mustaghees.jpg",
+                nickname: "Sage",
+                email: "mustaghees@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Aizaz Asif",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/aizaz.jpg"
+                about: "The most dramatic actor in our school plays.",
+                memory: "His Oscar-worthy performances in dramas",
+                current: "Drama at Juilliard",
+                image: "/aizaz.jpg",
+                nickname: "Bard",
+                email: "aizaz.asif@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammd Saleem",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/saleem.jpg"
+                about: "The most punctual prayer caller in our hostel.",
+                memory: "His beautiful azan for every prayer",
+                current: "Islamic Theology at Al-Azhar",
+                image: "/saleem.jpg",
+                nickname: "Muezzin",
+                email: "saleem@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Shehzaad",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/shehzad.jpg"
+                about: "The car enthusiast who knew every model and engine.",
+                memory: "His detailed car sketches in notebooks",
+                current: "Automotive Engineering at TU Munich",
+                image: "/shehzad.jpg",
+                nickname: "Petrolhead",
+                email: "shehzaad@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Sher Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/sherali.jpg"
+                about: "The strongest guy who helped everyone with heavy lifting.",
+                memory: "Carrying all the chairs for events",
+                current: "Physiotherapy at McGill",
+                image: "/sherali.jpg",
+                nickname: "Hercules",
+                email: "sher.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Malik Ahsan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/malikahsan.jpg"
+                about: "The most honest person who always spoke the truth.",
+                memory: "His blunt but fair opinions",
+                current: "Law at University of London",
+                image: "/malikahsan.jpg",
+                nickname: "Truth",
+                email: "ahsan.malik@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Hamza Malik",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/hamza.jpg"
+                about: "The most generous person who shared everything.",
+                memory: "His care packages during exam season",
+                current: "Philanthropy Studies at Indiana",
+                image: "/hamza.jpg",
+                nickname: "Giver",
+                email: "hamza.malik@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Junaid Ahmed",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/junaindahmed.jpg"
+                about: "The most adventurous person who tried every sport.",
+                memory: "His daredevil stunts during PT",
+                current: "Extreme Sports Photography",
+                image: "/junaindahmed.jpg",
+                nickname: "Adventure",
+                email: "junaid.ahmed@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Jodat Ali",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/jodat.jpg"
+                about: "The most patriotic student with deep historical knowledge.",
+                memory: "His inspiring speeches on Independence Day",
+                current: "Political Science at Georgetown",
+                image: "/jodat.jpg",
+                nickname: "Patriot",
+                email: "jodat.ali@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Faizan Habib",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/faizan.jpg"
+                about: "The most well-read person who finished library books first.",
+                memory: "His book recommendations for everyone",
+                current: "Literature at Cambridge",
+                image: "/faizan.jpg",
+                nickname: "Bookworm",
+                email: "faizan.habib@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muhammad Ali Awan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/aliawan.jpg"
+                about: "The most innovative person with creative solutions.",
+                memory: "His Rube Goldberg machine for science fair",
+                current: "Product Design at RISD",
+                image: "/aliawan.jpg",
+                nickname: "Inventor",
+                email: "ali.awan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muneeb Ur rehman",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/muneeb.jpg"
+                about: "The most spiritual person who led our prayers.",
+                memory: "His beautiful Quran recitations",
+                current: "Islamic Studies at Madinah University",
+                image: "/muneeb.jpg",
+                nickname: "Hafiz",
+                email: "muneeb@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muneeb (R)",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/muneebr.jpg"
+                about: "The most consistent student with steady progress always.",
+                memory: "His gradual improvement that inspired us all",
+                current: "Education at Teachers College",
+                image: "/muneebr.jpg",
+                nickname: "Steady",
+                email: "muneeb.r@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Sahil baidar",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/sahil.jpg"
+                about: "The most curious person who asked the best questions.",
+                memory: "His thought-provoking questions in class",
+                current: "Theoretical Physics at Princeton",
+                image: "/sahil.jpg",
+                nickname: "Curious",
+                email: "sahil.baidar@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Shehbaz gujjar",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/shehbaz.jpg"
+                about: "The most down-to-earth person who kept us grounded.",
+                memory: "His practical advice during stressful times",
+                current: "Agriculture at UAF",
+                image: "/shehbaz.jpg",
+                nickname: "Earth",
+                email: "shehbaz.gujjar@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Muzamil",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/muzamil.jpg"
+                about: "The most cheerful person who brightened every day.",
+                memory: "His infectious laughter in the corridors",
+                current: "Child Psychology at Berkeley",
+                image: "/muzamil.jpg",
+                nickname: "Sunshine",
+                email: "muzamil@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             },
             {
                 name: "Hasnat Hassan",
-                about: "Always smiling and the most positive person in class.",
-                memory: "His hilarious impressions of teachers",
-                current: "Business Administration at IBA Karachi",
-                image: "/hasnat.jpg"
+                about: "The most reliable person who never broke a promise.",
+                memory: "Always keeping his word no matter what",
+                current: "Business Ethics at Wharton",
+                image: "/hasnat.jpg",
+                nickname: "Promise",
+                email: "hasnat.hassan@example.com",
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             }
         ];
         
@@ -1062,13 +2228,23 @@
                 about: "A wonderful batchmate who made our school days memorable.",
                 memory: "Shared laughter in the dormitories",
                 current: "Pursuing higher education",
-                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg"
+                image: "https://pdsjand.github.io/daanish%20school%20jand%20attock%20academic%20block.jpg",
+                nickname: "Batchmate",
+                email: `student${i+1}@example.com`,
+                social: {
+                    facebook: "#",
+                    instagram: "#",
+                    twitter: "#"
+                }
             });
         }
         
         const galleryContainer = document.getElementById('galleryContainer');
         const searchInput = document.getElementById('search');
         const studentCount = document.getElementById('studentCount');
+        const studentModal = document.getElementById('studentModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
         
         // Function to render student cards
         function renderStudents(studentList) {
@@ -1076,7 +2252,7 @@
             
             if (studentList.length === 0) {
                 galleryContainer.innerHTML = `
-                    <div class="no-results">
+                    <div class="no-results" data-aos="fade-up">
                         <i class="fas fa-user-slash"></i>
                         <p>No students found matching your search.</p>
                     </div>
@@ -1085,9 +2261,11 @@
                 return;
             }
             
-            studentList.forEach(student => {
+            studentList.forEach((student, index) => {
                 const card = document.createElement('div');
                 card.className = 'student-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.setAttribute('data-aos-delay', (index % 6) * 100);
                 card.innerHTML = `
                     <div class="student-image-container">
                         <img src="${student.image}" alt="${student.name}" class="student-image">
@@ -1108,11 +2286,65 @@
                         </div>
                     </div>
                 `;
+                
+                card.addEventListener('click', () => openStudentModal(student));
                 galleryContainer.appendChild(card);
             });
             
             studentCount.textContent = `Showing ${studentList.length} of ${students.length} students`;
         }
+        
+        // Open student modal
+        function openStudentModal(student) {
+            modalContent.innerHTML = `
+                <div class="modal-student-image-container">
+                    <img src="${student.image}" alt="${student.name}" class="modal-student-image">
+                </div>
+                <div class="modal-student-info">
+                    <h3>${student.name}</h3>
+                    ${student.nickname ? `<p><strong>Nickname:</strong> ${student.nickname}</p>` : ''}
+                    <p>${student.about}</p>
+                    
+                    <div class="modal-detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span><strong>Current:</strong> ${student.current}</span>
+                    </div>
+                    
+                    <div class="modal-detail-item">
+                        <i class="fas fa-heart"></i>
+                        <span><strong>Favorite Memory:</strong> ${student.memory}</span>
+                    </div>
+                    
+                    <div class="modal-detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><strong>Email:</strong> ${student.email}</span>
+                    </div>
+                    
+                    <div class="social-links-modal">
+                        <a href="${student.social.facebook}" class="social-link-modal" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="${student.social.instagram}" class="social-link-modal" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="${student.social.twitter}" class="social-link-modal" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            `;
+            
+            studentModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            studentModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        studentModal.addEventListener('click', (e) => {
+            if (e.target === studentModal) {
+                studentModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
         
         // Initial render
         renderStudents(students);
@@ -1121,18 +2353,39 @@
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredStudents = students.filter(student => 
-                student.name.toLowerCase().includes(searchTerm)
+                student.name.toLowerCase().includes(searchTerm) || 
+                (student.nickname && student.nickname.toLowerCase().includes(searchTerm))
             );
             renderStudents(filteredStudents);
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const submitText = document.getElementById('submitText');
+        const submitLoading = document.getElementById('submitLoading');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitText.style.display = 'inline-block';
+                submitLoading.style.display = 'none';
+                
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            }, 1500);
+        });
+        
+        // Memory card click
+        document.querySelectorAll('.memory-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // In a real implementation, this would open a lightbox with the full memory
+                alert('This would open a detailed view of the memory with more photos and descriptions.');
             });
         });
     </script>
